@@ -68,7 +68,7 @@ public class SolutionDemo01 {
 
         String num1 = "1";
         String num2 = "9";
-//        System.out.println(new SolutionDemo01().addStrings(num1, num2));
+        System.out.println(new SolutionDemo01().addStrings(num1, num2));
 
     }
 
