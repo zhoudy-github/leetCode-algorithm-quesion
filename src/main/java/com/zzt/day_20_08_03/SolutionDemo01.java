@@ -2,7 +2,7 @@ package com.zzt.day_20_08_03;
 
 /**
  * 描述：<br> 题库 -- 算法 --【每日一题】 415. 字符串相加
- *      <p>网页地址：https://leetcode-cn.com/problems/add-strings/
+ * <p>网页地址：https://leetcode-cn.com/problems/add-strings/
  * </>
  *
  * @author 周志通
@@ -12,20 +12,21 @@ package com.zzt.day_20_08_03;
 public class SolutionDemo01 {
     /**
      * 个人的理解思路：
-     *      步骤一：指定 point1 和 point2 分别为字符串 num1 和 num2 的尾指针!
-     *       0<——(向左移动)<—— point1
-     *                           |
-     *                           V
-     *              num1： 1 2 3 4
+     * 步骤一：指定 point1 和 point2 分别为字符串 num1 和 num2 的尾指针!
+     * 0<——(向左移动)<—— point1
+     * |
+     * V
+     * num1： 1 2 3 4
+     * <p>
+     * 0<——(向左移动)<—— point2
+     * |
+     * V
+     * num2：1 2 3
+     * <p>
+     * 步骤二：将两个指针上的数字相加，再加上 进位值【判断是否存在进位情况】，然后向 stringBuffer 变量的头部添加字符
+     * 例如：最初，carry=0;temp=4+3=7，所以此时的 stringBuffer 往头部添加 7
+     * 步骤三：两个指针左移，并判断是否有[ 指针<=0或 进位carry==0 ]
      *
-     *    0<——(向左移动)<—— point2
-     *                        |
-     *                        V
-     *              num2：1 2 3
-     *
-     *      步骤二：将两个指针上的数字相加，再加上 进位值【判断是否存在进位情况】，然后向 stringBuffer 变量的头部添加字符
-     *              例如：最初，carry=0;temp=4+3=7，所以此时的 stringBuffer 往头部添加 7
-     *      步骤三：两个指针左移，并判断是否有[ 指针<=0或 进位carry==0 ]
      * @param num1 字符串1
      * @param num2 字符串2
      * @return 字符串1 和 字符串2 相加之和
@@ -38,28 +39,15 @@ public class SolutionDemo01 {
         int tempNum1;   // num1的数字
         int tempNum2;   // num2的数字
         int carry = 0;  // 当时的进位值
-        do {
-            if (point1 >= 0) {
-                tempNum1 = num1.charAt(point1) - '0';
-            } else {
-                tempNum1 = 0;
-            }
-            if (point2 >= 0) {
-                tempNum2 = num2.charAt(point2) - '0';
-            } else {
-                tempNum2 = 0;
-            }
+        while (point1 >= 0 || point2 >= 0 || carry != 0) {
+            tempNum1 = point1 >= 0 ? num1.charAt(point1) - '0' : 0;
+            tempNum2 = point2 >= 0 ? num2.charAt(point2) - '0' : 0;
             temp = tempNum1 + tempNum2 + carry;
-            carry = 0;
-            if (temp >= 10) {
-                carry = 1;
-                stringBuilder.insert(0, temp % 10);
-            } else {
-                stringBuilder.insert(0, temp);
-            }
+            stringBuilder.insert(0, temp % 10);
+            carry = temp / 10;
             point1--;
             point2--;
-        } while (point1 >= 0 || point2 >= 0 || carry != 0);
+        }
 
         return stringBuilder.toString();
     }
