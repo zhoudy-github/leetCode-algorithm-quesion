@@ -2,29 +2,7 @@ package com.zzt.day_20_08_03;
 
 /**
  * 描述：<br> 题库 -- 算法 --【每日一题】 415. 字符串相加
- * <p>网页地址：https://leetcode-cn.com/problems/add-strings/
- * <p>
- * 个人的理解思路：
- *      步骤一：指定 point1 和 point2 分别为字符串 num1 和 num2 的尾指针!
- *       0<——(向左移动)<—— point1
- *                           |
- *                           V
- *              num1： 1 2 3 4
- *
- *    0<——(向左移动)<—— point2
- *                        |
- *                        V
- *              num2：1 2 3
- *
- *      步骤二：将两个指针上的数字相加，再加上 进位值【判断是否存在进位情况】，然后向 stringBuffer 变量的头部添加字符
- *              例如：最初，carry=0;temp=4+3=7，所以此时的 stringBuffer 往头部添加 7
- *      步骤三：两个指针左移，并判断是否有[ 指针<=0或 进位carry==0 ]
- *
- * <p>
- * 详细思路地址：
- * <p>
- * 问题的考点：
- * <p>
+ *      <p>网页地址：https://leetcode-cn.com/problems/add-strings/
  * </>
  *
  * @author 周志通
