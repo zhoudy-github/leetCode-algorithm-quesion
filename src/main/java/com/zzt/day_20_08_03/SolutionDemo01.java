@@ -48,7 +48,6 @@ public class SolutionDemo01 {
             point1--;
             point2--;
         }
-
         return stringBuilder.toString();
     }
 
