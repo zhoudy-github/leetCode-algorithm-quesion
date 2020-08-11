@@ -37,12 +37,7 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-.idea/$CACHE_FILE$
-.idea/.gitignore
-.idea/compiler.xml
-.idea/inspectionProfiles/
-.idea/misc.xml
-.idea/smartfox_info.xml
+.idea/
 leetCode-algorithm-question.iml
 #pom.xml
 #src/
