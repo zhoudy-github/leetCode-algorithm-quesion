@@ -1,7 +1,5 @@
 package com.zzt.day_20_08_13;
 
-import java.util.Arrays;
-
 /**
  * 描述：<br>题库 -- 算法 --【每日一题】 43. 字符串相互乘</>
  * <p>网页地址：https://leetcode-cn.com/problems/multiply-strings/
