@@ -12,7 +12,15 @@ import java.util.Arrays;
  * @date 2020/8/16 10:01
  **/
 public class Solution01 {
-
+    /**
+     * 执行用时： 1 ms , 在所有 Java 提交中击败了 97.15% 的用户
+     * 内存消耗： 40.5 MB , 在所有 Java 提交中击败了 83.00% 的用户
+     * @param image
+     * @param sr
+     * @param sc
+     * @param newColor
+     * @return
+     */
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         if (image[sr][sc] == newColor) {
             return image;
