@@ -14,26 +14,41 @@ import java.util.List;
  **/
 public class Solution02 {
 
-    public List<List<Integer>> findSubsequences(int[] nums) {
+    private List<List<Integer>> res = new ArrayList<>();
+    private List<Integer> temp = new ArrayList<>();
 
-        return null;
+    public List<List<Integer>> findSubsequences(int[] nums) {
+        if (nums == null) {
+            return null;
+        }
+        dfs(0, Integer.MIN_VALUE, nums);
+        return res;
+    }
+
+    private void dfs(int curIndex, int preValue, int[] nums) {
+        if (curIndex >= nums.length) {  // 遍历结束
+            if (temp.size() >= 2) {
+                res.add(new ArrayList<>(temp));
+            }
+            return;
+        }
+
+        if (nums[curIndex] >= preValue) {   // 将当前元素加入，并向后遍历
+            temp.add(nums[curIndex]);
+            dfs(curIndex + 1, nums[curIndex], nums);
+            temp.remove(temp.size() - 1);
+        }
+        if (nums[curIndex] != preValue) {   // 不遍历 重复元素
+            dfs(curIndex + 1, preValue, nums);  // 将下一个元素加入，并向后遍历
+        }
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> res;
-        int index = 3;
-        int begin = (1 << index - 1) + 1;
-        while (begin < (1 << index)) {
-            res = new ArrayList<>();
-            String s = Integer.toBinaryString(begin);
-            for (char c : s.toCharArray()) {
-                res.add((int) c - 48);
-            }
-            result.add(res);
-            begin++;
+        int[] nums = {4, 6, 7, 7};
+        for (List<Integer> subsequence : new Solution02().findSubsequences(nums)) {
+            System.out.println(subsequence);
         }
-        System.out.println(result);
+        ;
     }
 
 }
