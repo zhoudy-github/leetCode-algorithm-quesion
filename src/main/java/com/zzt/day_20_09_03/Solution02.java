@@ -4,7 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 描述：<br>
+ * 描述：<br> 22. 括号生成
+ *     网址：https://leetcode-cn.com/problems/generate-parentheses/
  * </>
  *
  * @author 周志通
